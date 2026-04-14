@@ -10,8 +10,6 @@ import 'view/screens/home/home_screen.dart';
 import 'view/screens/profile/profile_screen.dart';
 
 void main() async {
- // WidgetsFlutterBinding.ensureInitialize ف Firebase لاحقاً هتعملها Initialize هنا
-  
   runApp(const WeatherApp());
 }
 
@@ -20,20 +18,19 @@ class WeatherApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 1. نوفر الـ ThemeCubit للتطبيق كله
     return BlocProvider(
       create: (context) => ThemeCubit(),
-      // 2. نستمع لتغييرات الـ ThemeMode
+
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, themeMode) {
           return MaterialApp(
             title: 'NTI Weather App',
             debugShowCheckedModeBanner: false,
-            
+
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
-            themeMode: themeMode, // هنا بنستخدم الحالة اللي جاية من الـ Cubit
-            
+            themeMode: themeMode,
+
             initialRoute: '/login',
             routes: {
               '/login': (context) => const LoginScreen(),

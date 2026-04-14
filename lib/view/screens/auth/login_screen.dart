@@ -7,22 +7,26 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // ضفنا Center عشان المحتوى يفضل في نص الشاشة
       body: Center(
-        // ضفنا SingleChildScrollView عشان نحل مشكلة الكيبورد
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(Icons.cloud_queue, size: 100, color: AppColors.accentCyan),
+              const Icon(
+                Icons.cloud_queue,
+                size: 100,
+                color: AppColors.accentCyan,
+              ),
               const SizedBox(height: 40),
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Email',
                   filled: true,
                   fillColor: AppColors.secondaryNavy,
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
@@ -32,7 +36,9 @@ class LoginScreen extends StatelessWidget {
                   hintText: 'Password',
                   filled: true,
                   fillColor: AppColors.secondaryNavy,
-                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
               ),
               const SizedBox(height: 30),
@@ -41,19 +47,20 @@ class LoginScreen extends StatelessWidget {
                 height: 50,
                 child: ElevatedButton(
                   onPressed: () {
-                    // توجيه لشاشة الـ Home مؤقتاً
                     Navigator.pushReplacementNamed(context, '/home');
-                  }, 
+                  },
                   child: const Text('Login'),
                 ),
               ),
               const SizedBox(height: 10),
               TextButton(
                 onPressed: () {
-                  // توجيه لشاشة الـ Register
                   Navigator.pushNamed(context, '/register');
                 },
-                child: const Text('Don\'t have an account? Register', style: TextStyle(color: Colors.white70)),
+                child: const Text(
+                  'Don\'t have an account? Register',
+                  style: TextStyle(color: Colors.white70),
+                ),
               ),
               const SizedBox(height: 20),
               OutlinedButton.icon(
